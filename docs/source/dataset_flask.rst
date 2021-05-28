@@ -1,7 +1,7 @@
 Dataset.py Documentation
 ========================
 
-.. automodule:: dataset
+.. automodule:: FLASK.dataset
    :members:
    :undoc-members:
    :show-inheritance:

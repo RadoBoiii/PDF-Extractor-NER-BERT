@@ -1,7 +1,7 @@
 Config.py Documentation
 =======================
 
-.. automodule:: config
+.. automodule:: FLASK.config
    :members:
    :undoc-members:
    :show-inheritance:

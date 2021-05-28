@@ -1,7 +1,7 @@
 App.py Documentation
 ====================
 
-.. automodule:: app
+.. automodule:: FLASK.app
    :members:
    :undoc-members:
    :show-inheritance:

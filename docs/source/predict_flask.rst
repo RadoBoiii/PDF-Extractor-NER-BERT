@@ -1,7 +1,7 @@
 Predict.py documentation
 ========================
 
-.. automodule:: predict
+.. automodule:: FLASK.predict
    :members:
    :undoc-members:
    :show-inheritance:
