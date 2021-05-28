@@ -4,8 +4,8 @@ FLASK
 .. toctree::
    :maxdepth: 4
 
-   app_flask
-   config_flask
-   dataset_flask
+   app
+   config
+   dataset
    pdf_to_img
-   predict_flask
+   predict
