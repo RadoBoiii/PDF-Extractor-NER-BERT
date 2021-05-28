@@ -1,3 +1,8 @@
+"""
+Access the dataset.py folder in Tensorflow Implementation folder.
+This file contains functions for processing the csv files and creating input tokens for train set and test set.
+No customizations are required in this file while using BERT model
+"""
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'   
 import tensorflow as tf
@@ -13,6 +18,23 @@ warnings.filterwarnings("ignore")
 
 
 def process_csv(data_path):
+    """This function performs label encoding on the columns and groups the rows from the data by sentence number.
+    It also fill in the null values using 'forward fill'
+
+    :param data_path: It is the absolute path to the csv file, defaults to none
+    
+    :type data_path: csv
+    
+    :return: Returns 3 paramters:
+    
+            - sentences: Sentences extracted from the csv file
+            
+            - tag: Annotated tag of key words 
+            
+            - enc_tag: encoded tag of each word by BERT
+    
+    :rtype: list
+    """
     df = pd.read_csv(data_path, encoding="latin-1")
     df.loc[:, "Sentence #"] = df["Sentence #"].fillna(method="ffill")
     enc_tag = preprocessing.LabelEncoder()
@@ -23,6 +45,22 @@ def process_csv(data_path):
 
 
 def create_inputs_targets(data_csv):
+    """This function tokenizes and encodes the tags of the training and performs masking and padding on the data if required.
+
+    :param data_csv: The csv file is passed to this function, defaults to none
+    
+    :type data_path: csv
+    
+    :return: Returns 3 paramters:
+    
+             - x: a list which consists of input ids, token type ids, attention masks
+            
+             - y: list of tags
+            
+             - tag_encoder: the encoded tags
+    
+    :rtype: list
+    """
     dataset_dict = {
         "input_ids": [],
         "token_type_ids": [],
@@ -78,6 +116,21 @@ def create_inputs_targets(data_csv):
     return x, y, tag_encoder    
 
 def create_test_input_from_text(texts):
+    """This function tokenizes and encodes the tags of the testing and performs masking and padding on the data if required.
+
+
+    :param data_csv: The csv file is passed to this function, defaults to none
+    
+    :type data_path: csv
+    
+    :return: Returns 2 paramters:
+    
+            - x: a list which consists of input ids, token type ids, attention masks
+            
+            - n_tokens: Length of input ids
+    
+    :rtype: list
+    """
     dataset_dict = {
         "input_ids": [],
         "token_type_ids": [],

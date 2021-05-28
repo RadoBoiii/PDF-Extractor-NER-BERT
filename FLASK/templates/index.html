@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pdf To Image Service</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/css/index.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <img class="logo" src="../static/images/logo.png"/>
+            <h2>PDF TO IMAGE SERVICE</h2>
+            <div class="box">
+                <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="pdfFile">Pdf File</label>
+                        <input type="file" class="form-control" id="pdfFile" name="file"/>
+                    </div>
+                    <button class="btn btn-success" onclick="loading();">CREATE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

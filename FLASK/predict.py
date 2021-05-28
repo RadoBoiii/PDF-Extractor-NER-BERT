@@ -1,5 +1,8 @@
+"""
+Access this file from the FLASK folder.
+This files predicts the outcome of the model. It consists of certain preprocessing steps which are fundamental in recieving clean and appropriate outcomes.  It converts the raw output model to a structured format.
+"""
 import warnings
-from model import create_model
 import config
 import pandas as pd
 import glob
@@ -20,6 +23,28 @@ warnings.filterwarnings("ignore")
 # 3 = INFO, WARNING, and ERROR messages are not printed
 
 def get_tokens(tokenized_sentence, tags, tags_name, enc_tag):
+    """This function extracts tokens for the words in the sentences.
+
+    :param tokenized_sentence: Recieves the sentences once it is tokenized, defaults to none
+    
+    :type data_path: list
+    
+    :param tags: It is the annotated tag that have to be predicted, defaults to none
+    
+    :type data_path: list
+    
+    :param tags_name: It is the tag name with the POS included, defaults to none
+    
+    :type data_path: list
+    
+    :param enc_tag: It recieves the encoded tag, defaults to none
+    
+    :type data_path: list
+    
+    :return: map_: returns encoded tokens of each word
+    
+    :rtype: dictionary
+    """
     map_ = {}
     for i in enc_tag.classes_:
         map_[i] = []
@@ -31,6 +56,24 @@ def get_tokens(tokenized_sentence, tags, tags_name, enc_tag):
 
 
 def get_mapping(sentence, meta_file, model_bert):
+    """Maps the words to the tokens and returns the predictions of each tag.
+
+    :param sentence: Recieves the tokenized sentence, defaults to none
+    
+    :type data_path: list
+    
+    :param meta_file: Meta file from the config.py, defaults to none
+    
+    :type data_path: .bin file
+    
+    :param model_bert: NER BERT model from config.py, defaults to none
+    
+    :type data_path: .bin file
+    
+    :return: final_info: returns key information that must be extracted
+    
+    :rtype: dictionary
+    """
     final_info = {"Account_no": [], "Admit_Date": [], "MR_Number": [], "Patient_Name": [],  "Social_Security_no": [], "Age": [
     ], "DOB": [], "Patient_Phone_no": [], "Admitting_Disease": [], "Admitting_Physician": [], "Primary_Insurance_Policy": []}
     extracted_info = {"Account_no": [], "Admit_Date": [], "MR_Number": [], "Patient_Name": [],  "Social_Security_no": [], "Age": [
@@ -193,23 +236,23 @@ def get_mapping(sentence, meta_file, model_bert):
     return final_info
 
 
-if __name__ == "__main__":
-    meta_data = joblib.load("meta.bin")
-    enc_tag = meta_data["enc_tag"]
-    num_tag = len(list(enc_tag.classes_))
-    m1 = create_model(num_tag)
-    m1.load_weights(config.WEIGHT_PATH)
+# if __name__ == "__main__":
+#     meta_data = joblib.load("meta.bin")
+#     enc_tag = meta_data["enc_tag"]
+#     num_tag = len(list(enc_tag.classes_))
+#     m1 = create_model(num_tag)
+#     m1.load_weights(config.WEIGHT_PATH)
 
-    TEXT_FILE_PATH = r'Text/*.txt'
-    var = glob.glob(TEXT_FILE_PATH)
-    var.sort()
-    for i in var:
-        f = open(i, "r")
+#     TEXT_FILE_PATH = r'Text/*.txt'
+#     var = glob.glob(TEXT_FILE_PATH)
+#     var.sort()
+#     for i in var:
+#         f = open(i, "r")
 
-        sentence = f.read()
+#         sentence = f.read()
 
-        get_mapping([sentence])
+#         get_mapping([sentence])
 
-    extracted_df = pd.DataFrame(final_info)
-    print(extracted_df)
-    extracted_df.to_csv(config.EXTRACTED_FILE, header=True, index=False)
+#     extracted_df = pd.DataFrame(final_info)
+#     print(extracted_df)
+#     extracted_df.to_csv(config.EXTRACTED_FILE, header=True, index=False)
