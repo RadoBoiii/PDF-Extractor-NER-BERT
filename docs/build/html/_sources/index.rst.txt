@@ -7,7 +7,7 @@ Welcome to PDF Extractor's documentation!
 =========================================
 
 .. toctree::
-   modules_flask
+   modules
 
 
 
