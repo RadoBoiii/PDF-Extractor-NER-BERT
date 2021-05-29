@@ -7,7 +7,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'   
 import tensorflow as tf
 os.environ['AUTOGRAPH_VERBOSITY'] = '1'
-#import config
+import config
 import joblib
 import numpy as np 
 from sklearn import preprocessing
