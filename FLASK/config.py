@@ -18,9 +18,4 @@ EPOCHS = 10
 # Add your paths here
 META_MODEL_PATH = r"../FLASK/Resource/meta.bin"
 MODEL_PATH = r"../FLASK/Resource/my_model.h5"
-tokenizer = BertWordPieceTokenizer(r"Resource/bert_base_uncased/vocab.txt", lowercase=True)
-# tokenizer = BertWordPieceTokenizer(
-#     r"/Users/iambankaratharva/CanspiritAI/bert-entity-extraction/FLASK/bert-base-uncased/vocab.txt", lowercase=True)
-
-# Give a path for poppler for Windows, for Mac keep it commented
-#POPPLER_PATH = r"Resource\poppler-0.67.0_x86\poppler-0.67.0\bin"
+tokenizer = BertWordPieceTokenizer(r"../FLASK/Resource/bert_base_uncased/bert-base-uncased-vocab.txt", lowercase=True)
