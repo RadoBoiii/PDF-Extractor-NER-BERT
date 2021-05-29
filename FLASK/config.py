@@ -16,6 +16,6 @@ VALID_BATCH_SIZE = 16
 EPOCHS = 10
 
 # Add your paths here
-META_MODEL_PATH = r"Resource/meta.bin"
-MODEL_PATH = r"Resource/my_model.h5"
-tokenizer = BertWordPieceTokenizer("Resource/bert-base-uncased/bert-base-uncased-vocab.txt", lowercase=True)
+META_MODEL_PATH = r"../FLASK/Resource/meta.bin"
+MODEL_PATH = r"../FLASK/Resource/my_model.h5"
+tokenizer = BertWordPieceTokenizer(r"../FLASK/Resource/bert_base_uncased/bert-base-uncased-vocab.txt", lowercase=True)
