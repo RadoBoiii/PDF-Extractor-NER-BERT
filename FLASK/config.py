@@ -18,8 +18,7 @@ EPOCHS = 10
 # Add your paths here
 META_MODEL_PATH = r"../FLASK/Resource/meta.bin"
 MODEL_PATH = r"../FLASK/Resource/my_model.h5"
-tokenizer = BertWordPieceTokenizer(
-    r"../FLASK/Resource/bert_base_uncased/vocab.txt", lowercase=True)
+tokenizer = BertWordPieceTokenizer(r"Resource/bert_base_uncased/vocab.txt", lowercase=True)
 # tokenizer = BertWordPieceTokenizer(
 #     r"/Users/iambankaratharva/CanspiritAI/bert-entity-extraction/FLASK/bert-base-uncased/vocab.txt", lowercase=True)
 
