@@ -24,11 +24,11 @@ MAX_LEN = 400
 TRAIN_BATCH_SIZE = 64
 VALID_BATCH_SIZE = 16
 EPOCHS = 10
-BASE_MODEL_PATH = r"Resource/bert_base_uncased"
-MODEL_PATH = "Resource/my_model.h5"
+BASE_MODEL_PATH = r"../FLASK/Resource/bert_base_uncased"
+MODEL_PATH = "../FLASK/Resource/my_model.h5"
 TRAINING_FILE = "/Users/sudhirshinde/Downloads/input/df_final.csv"
 #WEIGHT_PATH = "/content/drive/MyDrive/EdgeML_Team/Bert-Entity-Extraction using TensorFlow/saved_model/my_model_weights_1.h5"
 EXTRACTED_FILE = "/Users/sudhirshinde/Desktop/PythonForEverybody/PDF-Extractor-NER-BERT/Tensorflow-Implementation/Results/extracted_info.csv" 
 TEXT_FILE_PATH = r'/Users/sudhirshinde/Downloads/Text/*.txt'
 # encoder = TFBertModel.from_pretrained("/content/drive/MyDrive/BERT/input/bert-base-uncased")
-# tokenizer = BertWordPieceTokenizer("../FLASK/Resource/bert_base_uncased/bert-base-uncased-vocab.txt", lowercase=True)
+tokenizer = BertWordPieceTokenizer("../FLASK/Resource/bert_base_uncased/bert-base-uncased-vocab.txt", lowercase=True)
